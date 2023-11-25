@@ -2,9 +2,10 @@ import * as React from "react";
 
 export type GuessInputProps = {
   submitGuess: (guess: string) => void;
+  disabled: boolean;
 };
 
-export default function GuessInput({ submitGuess }: GuessInputProps) {
+export default function GuessInput({ submitGuess, disabled }: GuessInputProps) {
   const [guess, setGuess] = React.useState("");
   return (
     <form
@@ -21,6 +22,7 @@ export default function GuessInput({ submitGuess }: GuessInputProps) {
         id="guess-input"
         name="guess-input"
         value={guess}
+        disabled={disabled}
         onChange={(event) => {
           setGuess(event.target.value.toUpperCase());
         }}
