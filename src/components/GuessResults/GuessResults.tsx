@@ -1,18 +1,16 @@
 import * as React from "react";
 
-import { Guess } from "../../types";
+import Guess, { type GuessType } from "../Guess";
 
 export type GuessResultsProps = {
-  guessList: Guess[];
+  guessList: GuessType[];
 };
 
 export default function GuessResults({ guessList }: GuessResultsProps) {
   return (
     <div className="guess-results">
       {guessList.map((guess) => (
-        <p key={guess.id} className="guess">
-          {guess.body}
-        </p>
+        <Guess key={guess.id} guess={guess} />
       ))}
     </div>
   );
